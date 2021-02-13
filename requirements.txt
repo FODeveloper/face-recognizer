@@ -1,0 +1,7 @@
+opencv-python
+flask
+numpy
+imagezmq
+pillow
+dlib
+# there are a face recognition library to download, instructions located in 'facerecognizer.py'
