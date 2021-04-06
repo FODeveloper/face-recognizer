@@ -18,12 +18,13 @@ def gen(camera):
 
 @app.route('/stream')
 def video_feed():
-    return Response(gen(VideoCamera(input_url)),
+    return Response(gen(VideoCamera(input_url, camera)),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 def parse_args():
     global input_url
+    global camera
     # defining server ip address and port
     parser = argparse.ArgumentParser()
  
@@ -34,11 +35,21 @@ def parse_args():
 
     parser.add_argument("-p", "--port", help = "streaming port")
 
+    parser.add_argument("-k", "--camera_id", required=True, help = "camera id")
+
+    parser.add_argument("-n", "--camera_name", required=True, help = "camera name")
+
+    parser.add_argument("-l", "--camera_position", required=True, help = "camera position")
     # Read arguments from command line
     args = parser.parse_args()
     input_url = args.input
     url = args.url if args.url != None else '0.0.0.0'
     port = args.port if args.port != None else '5000'
+    camera = {
+        'id': args.camera_id,
+        'name': args.camera_name,
+        'position': args.camera_position
+    }
     return url, port
 
 

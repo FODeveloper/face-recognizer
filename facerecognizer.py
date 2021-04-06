@@ -8,7 +8,7 @@ try:
     import face_recognition_models
 except Exception:
     print("Please install `face_recognition_models` with this command before using `face_recognition`:\n")
-    print("pip install git+https://github.com/ageitgey/face_recognition_models")
+    print("pip3 install git+https://github.com/ageitgey/face_recognition_models")
     quit()
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
