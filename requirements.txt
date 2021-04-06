@@ -3,6 +3,7 @@ flask
 numpy
 imagezmq
 pillow
+pandas
 dlib
 
 # there are a face recognition library to download, instructions located in 'facerecognizer.py'
